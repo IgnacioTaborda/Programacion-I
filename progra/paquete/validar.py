@@ -14,7 +14,7 @@ def validar_nombre(nombre: str, mensaje: str) -> str:
     return nombre
     
 
-def validar_edad(edad:int) -> int:
+def validar_edad(edad) -> int:
     """_summary_
 
     Args:
