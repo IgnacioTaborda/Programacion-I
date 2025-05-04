@@ -14,24 +14,12 @@ def validar_nombre(nombre: str, mensaje: str) -> str:
     return nombre
     
 
-def validar_edad(edad) -> int:
-    """_summary_
-
-    Args:
-        edad (str): _description_
-
-    Returns:
-        int: Retorna la edad validada
-    """
+def validar_edad(edad_min: int, edad_max: int) -> int:
+    edad_str = input(f"Ingrese su edad [{edad_min} - {edad_max}]: ")
     
-    
-    '''
-    Recibe una edad en formato str, valida que este formada por numeros y que numericamente sea mayor
-    o igual a 8. En caso de cumplir, retonr la edad parseada a entero
-    '''
-    while not edad.isdigit() or (int(edad) < 18):
-        edad = input("Ingrese una edad: ")
-    edad_int = int(edad)
+    while not edad_str.isdigit() or (edad_min <= int(edad_str) <= edad_max):
+        edad_str = input("Error. Ingrese una edad valida: ")
+    edad_int = int(edad_str)
     return edad_int
 
 
