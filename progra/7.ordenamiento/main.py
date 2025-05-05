@@ -19,8 +19,46 @@ def programa():
             case 2:
                 total_unidades_almacenadas = calcular_unidades_almacenadas()
                 print(f"El total de unidades almacenadas es de {total_unidades_almacenadas}.")
-            case 3:
-                pass #soy un capo
+            case 3: #PUEDE HABER MAS DE UNO ASI QUE ESTA MALETA
+                auxiliar = None
+                indice = None
+                for i in range(len(lista_autos_cantidades)):
+                    if auxiliar == None or lista_autos_cantidades[i] < auxiliar:
+                        auxiliar = lista_autos_cantidades[i]
+                        indice = i
+                for j in range(len(lista_autos_ganancias)):
+                    if j == indice:
+                        mensaje= \
+                            f'''
+                            Garaje N° {j + 1}
+                            Marca: {lista_autos_marcas[j]}
+                            Modelo: {lista_autos_modelos[j]}
+                            Precio Unit: ${lista_autos_precios[j]}
+                            Cantidad: {lista_autos_cantidades[j]}
+                            Ganancias: {lista_autos_ganancias[j]}
+                            '''
+                            
+                        print(mensaje) 
+            case 4: #PUEDE HABER MAS DE UNO ASI QUE ESTA MALETA
+                auxiliar = None
+                indice = None
+                for i in range(len(lista_autos_cantidades)):
+                    if auxiliar == None or lista_autos_cantidades[i] > auxiliar:
+                        auxiliar = lista_autos_cantidades[i]
+                        indice = i
+                for j in range(len(lista_autos_ganancias)):
+                    if j == indice:
+                        mensaje= \
+                            f'''
+                            Garaje N° {j + 1}
+                            Marca: {lista_autos_marcas[j]}
+                            Modelo: {lista_autos_modelos[j]}
+                            Precio Unit: ${lista_autos_precios[j]}
+                            Cantidad: {lista_autos_cantidades[j]}
+                            Ganancias: {lista_autos_ganancias[j]}
+                            '''
+                            
+                        print(mensaje)
             case 5:
                 pass
             case 6:

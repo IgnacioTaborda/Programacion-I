@@ -20,8 +20,8 @@ def obtener_existencias():
 def validar_numero(numero_min: int, numero_max: int) -> int:
     numero = input(f"Ingrese un numero [{numero_min} - {numero_max}]: ")
     
-    while not numero.isdigit() or (numero_min < int(numero) < numero_max):
-        numero = input("Error. Ingrese un numero valida: ")
+    while not numero.isdigit() or (numero_min < int(numero) > numero_max):
+        numero = input("Error. Ingrese un numero valido: ")
     edad_int = int(numero)
     return edad_int
 
