@@ -60,14 +60,31 @@ def programa():
                             
                         print(mensaje)
             case 5:
-                pass
+                for i in range(len(lista_autos_precios)):
+                    resultado = 0
+                    resultado = lista_autos_precios[i] * lista_autos_cantidades[i]
+                    lista_autos_ganancias[i] = resultado
+                print(lista_autos_ganancias)
             case 6:
-                pass
+                for j in range(len(lista_autos_cantidades)):
+                    if lista_autos_cantidades[j] >= 6:
+                        mensaje= \
+                            f'''
+                            Garaje N° {j + 1}
+                            Marca: {lista_autos_marcas[j]}
+                            Modelo: {lista_autos_modelos[j]}
+                            Precio Unit: ${lista_autos_precios[j]}
+                            Cantidad: {lista_autos_cantidades[j]}
+                            Ganancias: {lista_autos_ganancias[j]}
+                            '''
+                            
+                        print(mensaje)
             case 7:
                 pass
             case 8:
                 pass
             case 9: 
+                print("Hasta la proxima!")
                 sistema = False
                 
         os.system('pause')
