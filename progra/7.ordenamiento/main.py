@@ -87,7 +87,11 @@ def programa():
                     #obtener_existencias(indice)
                 pass
             case 8:
-                pass
+                lista_autos_ganancias_ordenada = []
+                for i in range(len(lista_autos_ganancias-1)):
+                    for j in range(len(i+1,lista_autos_ganancias)):
+                        auxiliar = lista_autos_ganancias[i]
+                    
             case 9: 
                 print("Se esta cerrando el programa. Hasta la proxima!")
                 sistema = False
