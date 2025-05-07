@@ -1,3 +1,7 @@
+from utn_fra.datasets import (
+    lista_autos_cantidades, lista_autos_ganancias,
+    lista_autos_marcas, lista_autos_modelos, lista_autos_precios)
+
 def mostrar_menu():
     texto = \
         '''
@@ -18,3 +22,19 @@ def mostrar_menu():
         9 - Salir
         '''
     print(texto)
+    
+def obtener_existencias(garage:int): 
+        mensaje= \
+            f'''
+            Garaje N° {garage + 1}
+            Marca: {lista_autos_marcas[garage]}
+            Modelo: {lista_autos_modelos[garage]}
+            Precio Unit: ${lista_autos_precios[garage]}
+            Cantidad: {lista_autos_cantidades[garage]}
+            Ganancias: {lista_autos_ganancias[garage]}
+            '''
+            
+        print(mensaje) 
+        
+def imprimir_porcentaje_de_unidades(porcentaje:float, marca:str):
+    print(f"El porcentaje de {marca} es de: {round(porcentaje, 2)}%")

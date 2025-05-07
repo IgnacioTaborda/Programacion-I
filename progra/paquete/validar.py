@@ -14,13 +14,23 @@ def validar_nombre(nombre: str, mensaje: str) -> str:
     return nombre
     
 
-def validar_edad(edad_min: int, edad_max: int) -> int:
-    edad_str = input(f"Ingrese su edad [{edad_min} - {edad_max}]: ")
+def validar_numero(numero_min: int, numero_max: int) -> int:
+    """Funcion que pide que se ingrese un número por consola y valida que se encuentre dentro del rango
+
+    Args:
+        numero_min (int): Número minimo
+        numero_max (int): Número maximo
+
+    Returns:
+        int: Retorna el número validado
+    """
+    numero = input(f"Ingrese un numero [{numero_min} - {numero_max}]: ")
     
-    while not edad_str.isdigit() or (edad_min <= int(edad_str) <= edad_max):
-        edad_str = input("Error. Ingrese una edad valida: ")
-    edad_int = int(edad_str)
+    while not numero.isdigit() or (numero_min < int(numero) > numero_max):
+        numero = input("Error. Ingrese un numero valido: ")
+    edad_int = int(numero)
     return edad_int
+
 
 
 def validar_numero_entre(numero:str, min:int, max:int):
