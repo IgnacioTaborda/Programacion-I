@@ -16,21 +16,21 @@ def validar_numero(numero_min: int, numero_max: int) -> int:
     
     while not numero.isdigit() or (numero_min < int(numero) > numero_max):
         numero = input("Error. Ingrese un numero valido: ")
-    edad_int = int(numero)
-    return edad_int
+    numero_int = int(numero)
+    return numero_int
 
-def calcular_unidades_almacenadas()->int:
+def calcular_unidades_almacenadas(lista_unidades)->int:
     """Suma todas las unidades almacenadas de todos los garages
 
     Returns:
         int: Retorna la suma de todas las unidades
     """
     total = 0
-    for i in range(len(lista_autos_cantidades)):
-        total += lista_autos_cantidades[i]
+    for i in range(len(lista_unidades)):
+        total += lista_unidades[i]
     return total
 
-def garage_con_menor_unidades() -> int:
+def garage_con_menor_unidades(lista_menor_unidades:list) -> int:
     """Verifica cual es el garage con menor unidades almacenadas
 
     Returns:
@@ -38,23 +38,23 @@ def garage_con_menor_unidades() -> int:
     """
     auxiliar = None
     indice = None
-    for i in range(len(lista_autos_cantidades)):
-        if auxiliar == None or lista_autos_cantidades[i] < auxiliar:
-            auxiliar = lista_autos_cantidades[i]
+    for i in range(len(lista_menor_unidades)):
+        if auxiliar == None or lista_menor_unidades[i] < auxiliar:
+            auxiliar = lista_menor_unidades[i]
             indice = i
     return indice
 
-def garage_con_mas_unidades() -> int:
+def garage_con_mas_unidades(lista_mayor_unidades:list) -> int:
     """Verifica cual es el garage con mayor unidades almacenadas
 
     Returns:
-        int: Devuelve el garage que tiene más unidades
+        int: Devuelve el garage que tiene más unidades#
     """
     auxiliar = None
     indice = None
-    for i in range(len(lista_autos_cantidades)):
-        if auxiliar == None or lista_autos_cantidades[i] > auxiliar:
-            auxiliar = lista_autos_cantidades[i]
+    for i in range(len(lista_mayor_unidades)):
+        if auxiliar == None or lista_mayor_unidades[i] > auxiliar:
+            auxiliar = lista_mayor_unidades[i]
             indice = i
     return indice
 
@@ -70,8 +70,6 @@ def calcular_gananacias() -> list:
         lista_autos_ganancias[i] = resultado
     return lista_autos_ganancias
 
-print(lista_autos_marcas)
-
 def regla_de_3_simples(numero: int, total: int):
     resultado = (numero * 100) / total
     return resultado
@@ -83,5 +81,14 @@ def total_autos_por_marca(marca: str):
             resultado += lista_autos_cantidades[i]
     return resultado
 
-
-print(lista_autos_marcas)
+def eliminar_elementos_repetidos_lista(lista)->list:
+    largo_lista = len(lista)
+    for i in range(largo_lista-1):
+        for j in range(i+1,largo_lista):
+            if lista[i] == lista[j]:
+                lista[j] = None
+    lista_sin_repetidos = []
+    for k in range(largo_lista):
+        if lista[k] != None:
+            lista_sin_repetidos.append(lista[k])
+    return lista_sin_repetidos

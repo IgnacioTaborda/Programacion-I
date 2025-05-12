@@ -37,4 +37,7 @@ def obtener_existencias(garage:int):
         print(mensaje) 
         
 def imprimir_porcentaje_de_unidades(porcentaje:float, marca:str):
-    print(f"El porcentaje de {marca} es de: {round(porcentaje, 2)}%")
+    print(f"El porcentaje de {marca} es de: {round(porcentaje, 2)}%") 
+    
+def bloqueador(condicion):
+    print(f"Primero debe {condicion} para poder ejecutar esta opción.")

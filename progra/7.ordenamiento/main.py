@@ -1,8 +1,8 @@
 import os
-from impresiones import mostrar_menu, obtener_existencias, imprimir_porcentaje_de_unidades
+from impresiones import mostrar_menu, obtener_existencias, imprimir_porcentaje_de_unidades, bloqueador
 from fuciones_auxiliares import (
     validar_numero, calcular_unidades_almacenadas, garage_con_menor_unidades, garage_con_mas_unidades,
-    calcular_gananacias, regla_de_3_simples, total_autos_por_marca
+    calcular_gananacias, regla_de_3_simples, total_autos_por_marca, eliminar_elementos_repetidos_lista
 )
 from utn_fra.datasets import (
     lista_autos_cantidades, lista_autos_ganancias,
@@ -20,24 +20,24 @@ def programa():
             case 1: 
                 #Obtener existencias
                 if bloqueo_opcion_1_3_4_6 == False:
-                    print("Primero debe obtener la recaudación (Opción 5)")
+                    bloqueador("ejecutar la opción 5")
                 else:
                     for i in range(len(lista_autos_cantidades)):
                         obtener_existencias(i)
                     
             case 2:
                 #Cantidad total de unidades almacenadas
-                total_unidades_almacenadas = calcular_unidades_almacenadas()
+                total_unidades_almacenadas = calcular_unidades_almacenadas(lista_autos_cantidades)
                 print(f"El total de unidades almacenadas es de {total_unidades_almacenadas}.")
                 
             case 3: #PUEDE HABER MAS DE UNO ASI QUE ESTA MALETA.
                 #Minima cantidad de unidades almacenadas
-                indice = garage_con_menor_unidades()
+                indice = garage_con_menor_unidades(lista_autos_cantidades)
                 obtener_existencias(indice)
                  
             case 4: #PUEDE HABER MAS DE UNO ASI QUE ESTA MALETA
                 #Maxima cantidad de unidades almacenadas
-                indice = garage_con_mas_unidades()
+                indice = garage_con_mas_unidades(lista_autos_cantidades)
                 obtener_existencias(indice)
                 
             case 5:
@@ -49,7 +49,7 @@ def programa():
             case 6:
                 #Garajes con 6 o más unidades almacenadas
                 if bloqueo_opcion_1_3_4_6 == False:
-                    print("Primero debe obtener la recaudación (Opción 5)")
+                    bloqueador("ejecutar la opción 5")
                 else:
                     for j in range(len(lista_autos_cantidades)):
                         if lista_autos_cantidades[j] >= 6:
@@ -57,32 +57,28 @@ def programa():
                         
             case 7:
                 if bloqueo_opcion_1_3_4_6 == False:
-                    print("Primero debe obtener la recaudación (Opción 5)")
+                    bloqueador("ejecutar la opción 5")
                 else:
                     #A.Porcentajes:
-                    total_unidades_almacenadas = calcular_unidades_almacenadas()
-                    total_chevrolet = regla_de_3_simples(total_autos_por_marca("Chevrolet"),total_unidades_almacenadas)
-                    total_toyota = regla_de_3_simples(total_autos_por_marca("Toyota"),total_unidades_almacenadas)
-                    total_fiat = regla_de_3_simples(total_autos_por_marca("Fiat"),total_unidades_almacenadas)
-                    total_renault = regla_de_3_simples(total_autos_por_marca("Renault"),total_unidades_almacenadas)
-                    total_volkswagen = regla_de_3_simples(total_autos_por_marca("Volkswagen"),total_unidades_almacenadas)
-                    total_ford = regla_de_3_simples(total_autos_por_marca("Ford"),total_unidades_almacenadas)
-                    total_audi = regla_de_3_simples(total_autos_por_marca("Audi"),total_unidades_almacenadas)
-                    total_honda = regla_de_3_simples(total_autos_por_marca("Honda"),total_unidades_almacenadas)
-                    total_nissan = regla_de_3_simples(total_autos_por_marca("Nissan"),total_unidades_almacenadas)
-                    total_peugeot = regla_de_3_simples(total_autos_por_marca("Peugeot"),total_unidades_almacenadas)
-
-                    imprimir_porcentaje_de_unidades(total_chevrolet, "Chevrolet")
-                    imprimir_porcentaje_de_unidades(total_toyota, "Toyota")
-                    imprimir_porcentaje_de_unidades(total_fiat, "Fiat")
-                    imprimir_porcentaje_de_unidades(total_renault, "Renault")
-                    imprimir_porcentaje_de_unidades(total_volkswagen, "Volkswagen")
-                    imprimir_porcentaje_de_unidades(total_ford, "Ford")
-                    imprimir_porcentaje_de_unidades(total_audi, "Audi")
-                    imprimir_porcentaje_de_unidades(total_honda, "Honda")
-                    imprimir_porcentaje_de_unidades(total_nissan, "Nissan")
-                    imprimir_porcentaje_de_unidades(total_peugeot, "Peugeot")
-                    #B.Datos del maximo vehiculos alamacenados
+                    total_unidades_almacenadas = calcular_unidades_almacenadas(lista_autos_cantidades)
+                    lista_sin_repetidos = eliminar_elementos_repetidos_lista(lista_autos_marcas)
+                    lista_totales_por_marca = [0]
+                    for i in range(len(lista_sin_repetidos)):
+                        for j in range(len(lista_autos_marcas)):
+                            if lista_sin_repetidos[i] == lista_autos_marcas[j]:
+                                #lista_totales_por_marca.append(0)
+                                lista_totales_por_marca[i] += lista_autos_cantidades[j]
+                                lista_totales_por_marca.append(0)
+                    print(f"Chevrolet tiene {lista_totales_por_marca[0]}")
+                    print(f"Toyota tiene {lista_totales_por_marca[1]}")
+                    print(f"Fiat tiene {lista_totales_por_marca[2]}")
+                    print(f"Renault tiene {lista_totales_por_marca[3]}")
+                    print(f"Volkswagen tiene {lista_totales_por_marca[4]}")
+                    print(f"Ford tiene {lista_totales_por_marca[5]}")
+                    print(f"Audi tiene {lista_totales_por_marca[6]}")
+                    print(f"Honda tiene {lista_totales_por_marca[7]}")
+                    print(f"Nissan tiene {lista_totales_por_marca[8]}")
+                    print(f"Peugeot tiene {lista_totales_por_marca[9]}")
                     #indice = garage_con_mas_unidades()
                     #obtener_existencias(indice)
                 pass
@@ -99,4 +95,4 @@ def programa():
         os.system('pause')
         os.system('cls')
                 
-programa()
+programa() #
