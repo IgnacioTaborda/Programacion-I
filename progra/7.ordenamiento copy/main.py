@@ -1,8 +1,8 @@
 import os
-from impresiones import mostrar_menu, obtener_existencias
+from impresiones import mostrar_menu, obtener_existencias, mensaje_ej_7
 from fuciones_auxiliares import (
     total_unidades, menor_unidad, mayor_unidad, conseguir_indices_por_valor, obtener_recaudacion,
-    obtener_garages_con_6_o_mas
+    obtener_garajes_con_6_o_mas, eliminar_elementos_repetidos, crear_una_lista, regla_de_3_simples
 )
 from validaciones import (pedir_numero, validar_rango)
 from utn_fra.datasets import (
@@ -15,6 +15,7 @@ def programa():
         mostrar_menu()
         opcion = pedir_numero()
         opcion = validar_rango(opcion,1,9)
+        verificar_2 = False
         
         match opcion:
             case 1:
@@ -25,6 +26,7 @@ def programa():
                 #2.Todas las unidades de todos los garages
                 todas_las_unidades = total_unidades(lista_autos_cantidades)
                 print(f"El total de unidades almacenadas es de: {todas_las_unidades}")
+                verificar_2 = True
             
             case 3:
                 #3.Datos del garage con menos unidades almacenadas
@@ -47,12 +49,28 @@ def programa():
                 pass
             
             case 6:
-                #6.Garages con 6 o más unidades almacenadas
-                garages_con_masigual_6 = obtener_garages_con_6_o_mas(lista_autos_cantidades)
-                for i in range(len(garages_con_masigual_6)):
-                    obtener_existencias(garages_con_masigual_6[i])
+                #6.Garajes con 6 o más unidades almacenadas
+                garajes_con_masigual_6 = obtener_garajes_con_6_o_mas(lista_autos_cantidades)
+                for i in range(len(garajes_con_masigual_6)):
+                    obtener_existencias(garajes_con_masigual_6[i])
                 
             case 7:
+                #A.Porcentaje de marcas de vehiculos sobre el total
+
+                lista_marcas_sin_repetidos = eliminar_elementos_repetidos(lista_autos_marcas)
+                largo_lista_marcas_sin_repetidos = len(lista_marcas_sin_repetidos)
+                lista_ganancias_por_marca = crear_una_lista(largo_lista_marcas_sin_repetidos,0)
+
+                for i in range(len(lista_autos_marcas)):
+                    for j in range(largo_lista_marcas_sin_repetidos):
+                        if lista_autos_marcas[i] == lista_marcas_sin_repetidos[j]:
+                            lista_ganancias_por_marca[j] += lista_autos_cantidades[i]
+                            
+                for i in range(len(lista_autos_marcas)):
+                    pass
+                
+                    
+                #B.Datos del garaje con el maximo porcentaje
                 pass
             case 8:
                 pass

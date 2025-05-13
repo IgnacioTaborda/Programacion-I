@@ -87,6 +87,7 @@ def eliminar_elementos_repetidos_lista(lista)->list:
         for j in range(i+1,largo_lista):
             if lista[i] == lista[j]:
                 lista[j] = None
+                           
     lista_sin_repetidos = []
     for k in range(largo_lista):
         if lista[k] != None:

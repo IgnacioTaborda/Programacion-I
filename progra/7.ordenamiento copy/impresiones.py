@@ -23,21 +23,24 @@ def mostrar_menu():
         '''
     print(texto)
     
-def obtener_existencias(garage:int):
+def obtener_existencias(garaje:int):
     """Da un informe por consola con: el número de garage, marca que almacena, modelo, 
     precio unitario, cantidad y ganancias.
 
     Args:
-        garage (int): El número de garage
+        garaje (int): El número de garaje
     """
     mensaje= \
         f'''
-        Garaje N° {garage + 1}
-        Marca: {lista_autos_marcas[garage]}
-        Modelo: {lista_autos_modelos[garage]}
-        Precio Unit: ${lista_autos_precios[garage]}
-        Cantidad: {lista_autos_cantidades[garage]}
-        Ganancias: {lista_autos_ganancias[garage]}
+        Garaje N° {garaje + 1}
+        Marca: {lista_autos_marcas[garaje]}
+        Modelo: {lista_autos_modelos[garaje]}
+        Precio Unit: ${lista_autos_precios[garaje]}
+        Cantidad: {lista_autos_cantidades[garaje]}
+        Ganancias: {lista_autos_ganancias[garaje]}
         '''
         
     print(mensaje) 
+    
+def mensaje_ej_7(marca : str, porcentaje : int):
+    print(f"{marca} tiene el {porcentaje}% de coches")

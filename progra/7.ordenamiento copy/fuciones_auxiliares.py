@@ -78,12 +78,36 @@ def obtener_recaudacion(lista_autos_ganancias:list) -> list:
         lista_autos_ganancias[i] = suma
     return lista_autos_ganancias    
 
-def obtener_garages_con_6_o_mas(lista_autos_cantidades : list) -> list:
-    lista_garages = []
+def obtener_garajes_con_6_o_mas(lista_autos_cantidades : list) -> list:
+    lista_garajes = []
     for i in range(len(lista_autos_cantidades)):
         if lista_autos_cantidades[i] >= 6:
-            lista_garages.append(i)
-    return lista_garages
+            lista_garajes.append(i)
+    return lista_garajes
+
+def eliminar_elementos_repetidos(lista : list) -> list:
+    """Recibe una lista por parametro y elimina los elementos repetidos.
+
+    Args:
+        lista_autos_marcas (list): Lista a recorrer
+
+    Returns:
+        list: Retorna una lista sin elementos repetidos
+    """
+    lista_sin_repetidos = []
+    
+    for i in range(len(lista)):
+        if lista[i] not in lista_sin_repetidos:
+            lista_sin_repetidos.append(lista[i])
+    return lista_sin_repetidos
+
+def crear_una_lista(largo : int, valor = 0) -> list:
+    lista = [valor] * largo
+    return lista
+
+def regla_de_3_simples(numero: int, total: int):
+    resultado = (numero * 100) / total
+    return resultado
 
 '''x = menor_unidad(lista_autos_cantidades)
 xd = conseguir_indices_por_valor(x,lista_autos_cantidades)
