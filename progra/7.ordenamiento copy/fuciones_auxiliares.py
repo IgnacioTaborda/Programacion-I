@@ -109,6 +109,23 @@ def regla_de_3_simples(numero: int, total: int):
     resultado = (numero * 100) / total
     return resultado
 
+def ordenar_lista(lista : list) -> list:
+    largo_lista = len(lista)
+    for i in range(largo_lista-1):
+        for j in range(i+1,largo_lista):
+            if lista[j] > lista[i]:
+                auxiliar = lista[i]
+                lista[i] = lista[j]
+                lista[j] = auxiliar
+    lista_ordenada = lista
+    return lista_ordenada
+
+print(ordenar_lista(lista = [6,4,2,1,67,5]))
+
+
+
+
+
 '''x = menor_unidad(lista_autos_cantidades)
 xd = conseguir_indices_por_valor(x,lista_autos_cantidades)
 print(xd)'''

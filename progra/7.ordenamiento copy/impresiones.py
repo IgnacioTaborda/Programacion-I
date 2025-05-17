@@ -44,3 +44,18 @@ def obtener_existencias(garaje:int):
     
 def mensaje_ej_7(marca : str, porcentaje : int):
     print(f"{marca} tiene el {porcentaje}% de coches")
+    
+def recaudador_de_garage(garaje : int, ganancia : float):
+    """Da un informe por consola con: el número de garage, marca que almacena, modelo, 
+    precio unitario, cantidad y ganancias.
+
+    Args:
+        garaje (int): El número de garaje
+    """
+    mensaje= \
+        f'''
+        Garaje N° {garaje + 1}
+        Ganancias: {ganancia}
+        '''
+        
+    print(mensaje) 
