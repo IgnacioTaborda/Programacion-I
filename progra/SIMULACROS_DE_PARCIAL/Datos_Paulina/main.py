@@ -22,6 +22,7 @@ def programa():
                 largo_lista = len(lista_nombres_videos)
                 matriz = crear_matriz(largo_lista,3)
                 
+                
             
             case 2:
                 pass

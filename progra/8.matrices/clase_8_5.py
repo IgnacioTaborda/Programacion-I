@@ -11,6 +11,7 @@ def buscar_en_matriz(matriz : list, indice_donde_buscar : int, valor_a_buscar : 
         indice += 1
         
     return indice_encontrado
+    #Por ej: querese saber cual garaje tiene un coche de tal valor, matriz = concesionaria, indice_donde_buscar = columna de precio.
 
 def buscar_en_matriz_list(matriz : list, indice_donde_buscar : int, valor_a_buscar : str) -> list:
     lista_indice_encontrado = []

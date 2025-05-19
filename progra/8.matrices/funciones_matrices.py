@@ -114,14 +114,17 @@ matriz_b = [
     [1, 4],
     [4, 22]
 ]
-resultado = multiplicar_dos_matrices(matriz_a, matriz_b)
-mostrar_matriz(resultado)
-
-
-# matriz_a_longitud = validar_longitud_de_una_matriz(matriz_a)#fila x columna
-# matriz_b_longitud = validar_longitud_de_una_matriz(matriz_b)#fila x columna
-# matriz_resultado = crear_una_matriz(matriz_a_longitud[0],matriz_b_longitud[0])
-
-
-# print(matriz_resultado)
-# print(matriz_b_longitud)
+def sumar_matrices(matriz_a : list, matriz_b : list) -> list:
+    largo_matriz_a = validar_longitud_de_una_matriz(matriz_a)
+    largo_matriz_b = validar_longitud_de_una_matriz(matriz_b)
+    matriz_resultado = crear_una_matriz(largo_matriz_a[0],largo_matriz_a[1])
+    
+    if largo_matriz_a == largo_matriz_b:
+        for i in range(largo_matriz_a[0]):
+            for j in range(largo_matriz_a[1]):
+                resultado = matriz_a[i][j] + matriz_b[i][j]
+                matriz_resultado[i][j] += (resultado)
+        return matriz_resultado
+    
+    else:
+        print("No es posible sumar estas matrices entre si ya que no tienen la misma dimensión")

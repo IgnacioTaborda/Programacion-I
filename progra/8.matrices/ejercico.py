@@ -11,7 +11,15 @@ def mostrar_matrix(matriz:list[list]): #EN LA PPT ESTA MOCHO MEJOR BV
     for i in range(len(matriz)):
         lista_fila = len(matriz[i])
         for j in range(lista_fila):
-            dato = lista_fila[j]
+            dato = matriz[i][j]
             print(dato, end=" ")
+        print("")
 
-mostrar_matrix(incializar_matriz(3,5,7))
+matriz = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [13, 14, 15, 16]
+]
+
+mostrar_matrix(matriz)
