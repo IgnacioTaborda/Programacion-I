@@ -1,3 +1,8 @@
+from utn_fra.datasets import (
+    matriz_data_heroes,lista_alturas_heroes,lista_poder_heroes,lista_generos_heroes,
+    lista_apodos_heroes,lista_identidades_heroes,lista_nombres_heroes
+)
+
 def mostrar_menu_principal():
     menu = '''
     1 - Recorrer la matriz imprimiendo por consola el nombre de cada personaje
@@ -20,14 +25,13 @@ def mostrar_menu_principal():
     '''
     print(menu)
     
-def imprimir_datos(matriz : list, fila : int, columna : int):
+def imprimir_datos(i : int):
     datos = f'''
-    El nombre del personaje es {matriz[fila][columna]}
-    La identidad del personaje es {matriz[fila][columna]}
-    El apodo del personaje es {matriz[fila][columna]}
-    El sexo del personaje es {matriz[fila][columna]}
-    El poder del personaje es {matriz[fila][columna]}
-    La altura del personaje es {matriz[fila][columna]}
+    El nombre del personaje es {lista_nombres_heroes[i]}
+    La identidad del personaje es {lista_identidades_heroes[i]}
+    El apodo del personaje es {lista_apodos_heroes[i]}
+    El sexo del personaje es {lista_generos_heroes[i]}
+    El poder del personaje es {lista_poder_heroes[i]}
+    La altura del personaje es {lista_alturas_heroes[i]}
     '''
     print(datos)
-    
