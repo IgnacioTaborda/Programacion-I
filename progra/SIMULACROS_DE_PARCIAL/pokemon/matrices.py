@@ -99,7 +99,7 @@ def obtener_indices_filtrado(matriz : list[list], indice_fila : int, elemento_bu
             lista_indices.append([i])
     return lista_indices
 
-def filtrar_matriz_poder_superior(matriz : list[list], indice_fila : int, elemento_buscar : str):
+def filtrar_matriz_legendarios(matriz : list[list], indice_fila : int, elemento_buscar : str):
     indices_superadores = obtener_indices_filtrado(matriz,indice_fila,elemento_buscar)
     matriz_filtrada = [
         [],[],[],[],[]
