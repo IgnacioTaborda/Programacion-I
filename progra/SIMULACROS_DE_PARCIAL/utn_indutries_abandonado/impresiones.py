@@ -21,7 +21,7 @@ def mostrar_menu_principal():
     14 - Determinar el promedio de altura de todos los personajes FEMENINOS e informar qué personaje/s (cualquier género) están por debajo de ese promedio.
     15 - Determinar el promedio de nivel de poder de los personajes No-Binario e informar qué personaje/s (cualquier género) están por encima de ese promedio
     16 - Salir
-     
+      
     '''
     print(menu)
     

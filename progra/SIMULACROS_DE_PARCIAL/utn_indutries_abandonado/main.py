@@ -3,7 +3,7 @@ from utn_fra.datasets import matriz_data_heroes,lista_alturas_heroes,lista_poder
 from impresiones import mostrar_menu_principal, imprimir_datos
 from validaciones import validar_numero, validar_rango_numerico
 from funciones_auxiliares import (
-    buscar_mayor_valor, buscar_menor_valor,encontrar_indice_por_valor,calcular_promedio_lista
+    buscar_mayor_valor, buscar_menor_valor,encontrar_indice_por_valor,calcular_promedio_lista,crear_matriz_traspuesta
 )
 
 
@@ -16,7 +16,7 @@ def programa_super_heroes():
         opciones = validar_rango_numerico(opciones,1,16)
         cant_filas = len(matriz_data_heroes)
         cant_columnas = len(matriz_data_heroes[0])
-        
+        matriz_traspuesta = crear_matriz_traspuesta(matriz_data_heroes)
         
         match opciones:
             case 1:
@@ -115,11 +115,12 @@ def programa_super_heroes():
                     
                     for i in range(cantidad_male):
                         promedio_poder_male += lista_poder_heroes[contador_male[i]]
-                    promedio_poder_male = promedio_poder_male / 2
+                    promedio_poder_male = promedio_poder_male / cantidad_male
                     promedio_poder_male = round(promedio_poder_male,2)
                     
                     for i in range(cantidad_female):
-                        pass
+                        if lista_poder_heroes[contador_female[i]] > promedio_poder_male:
+                            print(f"{matriz_data_heroes[5][contador_female[i]]} esta por encima de los hombres")
                     
                         
                 else:
@@ -146,4 +147,4 @@ def programa_super_heroes():
         os.system('cls')    
         
 programa_super_heroes()
-#print(lista_alturas_heroes)
+#print(matriz_data_heroes)

@@ -66,4 +66,28 @@ def calcular_promedio_lista(lista : list) -> float:
         acumulador += lista[i]
     promedio = acumulador / largo_lista
     promedio = round(promedio,2)
-    return promedio
+    return promedio 
+
+def convertir_columna_en_fila(matriz : list[list], columna : int) -> list:
+    fila = []
+    for j in range(len(matriz)):
+            fila.append(matriz[j][columna])
+    return fila
+
+def crear_matriz_traspuesta(matriz : list[list]):
+    matriz_traspuesta = []
+    for i in range(len(matriz[0])):
+        fila = convertir_columna_en_fila(matriz,i)
+        matriz_traspuesta.append(fila)     
+    return matriz_traspuesta 
+
+
+            
+matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [10, 11, 12]
+]
+
+print(crear_matriz_traspuesta(matriz))

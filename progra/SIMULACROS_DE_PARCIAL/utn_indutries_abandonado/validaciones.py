@@ -35,4 +35,4 @@ def validar_rango_numerico(numero : int, num_min : int, num_max : int) -> int:
         numero = validar_numero()
         return validar_rango_numerico(numero, num_min, num_max)
     
-    
+     
