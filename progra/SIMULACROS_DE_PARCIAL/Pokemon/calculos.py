@@ -18,4 +18,4 @@ def calcular_promedio(matriz : list[list], fila : int) -> float:
         promedio_poder = round(promedio_poder,2)
         return promedio_poder  
     else:
-        print("La matriz esta vacia!")
+        print("La matriz esta vacia!") 

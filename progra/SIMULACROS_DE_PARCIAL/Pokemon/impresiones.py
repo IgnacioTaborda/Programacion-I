@@ -19,4 +19,4 @@ def imprimir_informacion(lista : list):
     -Tipo: {lista[2]}
     -Poder: {lista[3]}
     -Condición: {lista[4]}
-    '''
+    ''' 

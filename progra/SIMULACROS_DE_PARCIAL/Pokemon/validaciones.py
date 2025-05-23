@@ -1,5 +1,5 @@
 def validar_numero() -> int:
-    numero = input("Ingrese un número: ")
+    numero = input("Ingrese un número: ") 
     if numero.isdigit():
         numero = int(numero)
         return numero
