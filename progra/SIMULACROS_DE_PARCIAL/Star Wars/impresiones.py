@@ -23,4 +23,11 @@ def imprimir_datos_de_personaje(matriz : list[list], columna : int):
     -Altura (cm): {matriz[2][columna]}
     -Peso (kg): {matriz[3][columna]}
     '''
-    print(datos)
+    print(datos) 
+    
+    
+
+lista = ['172', '167', '96', '202', '150', '178', '165', '97', '183', '182','z']
+
+
+

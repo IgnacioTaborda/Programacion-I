@@ -11,7 +11,7 @@ def validar_numero() -> int:
         numero = int(numero)
         return numero
     else:
-        return validar_numero()
+        return validar_numero() 
         
         
 def validar_rango_numerico(numero : int, num_min : int, num_max : int) -> int:

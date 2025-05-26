@@ -1,10 +1,10 @@
 import os
 from utn_fra.datasets import (
-    lista_sw_nombres, lista_sw_generos, lista_sw_alturas, lista_sw_pesos
+    lista_sw_nombres, lista_sw_generos, lista_sw_alturas, lista_sw_pesos 
 )
 from impresiones import imprimir_menu,imprimir_datos_de_personaje
 from validaciones import validar_numero, validar_rango_numerico
-from matrices import crear_matriz_de_4_filas,trasponer_matriz, parsear_strings_a_int
+from matrices import crear_matriz_de_4_filas,trasponer_matriz, parsear_int,selection_sort_ascendente
 from calculos import calcular_promedio_matriz
 
 def aplicacion(lista_sw_nombres, lista_sw_generos, lista_sw_alturas, lista_sw_pesos):
@@ -25,20 +25,28 @@ def aplicacion(lista_sw_nombres, lista_sw_generos, lista_sw_alturas, lista_sw_pe
                     imprimir_datos_de_personaje(matriz_star_wars,i)
             
             case 2:
-                parsear_altura = parsear_strings_a_int(matriz_star_wars,3)
-                promedio_altura = calcular_promedio_matriz(matriz_star_wars,3)
-                parsear_peso = parsear_strings_a_int(matriz_star_wars,4)
-                promedio_peso = calcular_promedio_matriz(matriz_star_wars,4)
-                print(f"La altura promedio es {promedio_altura}")
-                print(f"El peso promedio es {promedio_peso}")
+                #2.Mostrar personajes que no superen el promedio de altura ni de peso
+                parsear_altura = parsear_int(matriz_star_wars,2)
+                promedio_altura = calcular_promedio_matriz(matriz_star_wars,2)
+                parsear_peso = parsear_int(matriz_star_wars,3)
+                promedio_peso = calcular_promedio_matriz(matriz_star_wars,3)
                 
-                #TENES Q PARSEAR
+                
+                for i in range(cant_columnas_matriz):
+                    if (matriz_star_wars[2][i] <= promedio_altura) and (matriz_star_wars[3][i] <= promedio_peso):
+                        imprimir_datos_de_personaje(matriz_star_wars,i)
                 
             case 3:
-                pass
+                #3.Ordenar matriz por peso (ASC)
+                d = selection_sort_ascendente(matriz_star_wars,3)
+                print(matriz_star_wars[3])
+                                
             
             case 4:
-                pass
+                #4.Mostrar personajes N/A
+                for i in range(cant_columnas_matriz):
+                    if matriz_star_wars[1][i] == "n/a":
+                        imprimir_datos_de_personaje(matriz_star_wars,i)
             
             case 5:
                 #5.Trasponer datos
