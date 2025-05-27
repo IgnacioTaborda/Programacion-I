@@ -1,4 +1,4 @@
-def validar_nombre(nombre: str, mensaje: str) -> str:
+def validar_nombre(nombre: str, mensaje: str) -> str: 
     """ 
     Valida que el nombre contenga solamente letras
 

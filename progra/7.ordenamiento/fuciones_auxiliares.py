@@ -70,7 +70,7 @@ def calcular_gananacias() -> list:
         lista_autos_ganancias[i] = resultado
     return lista_autos_ganancias
 
-def regla_de_3_simples(numero: int, total: int):
+def regla_de_3_simples(numero: int, total: int): 
     resultado = (numero * 100) / total
     return resultado
 

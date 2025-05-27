@@ -1,6 +1,6 @@
 from utn_fra.datasets import matriz_data_heroes_small,matriz_data_heroes
 
-def buscar_menor_valor(lista : list) -> int:
+def buscar_menor_valor(lista : list) -> int: 
     """Esta función se encarga de buscar el menor valor de una lista y
     lo retorna.
 
