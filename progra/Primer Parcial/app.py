@@ -31,6 +31,9 @@ def aplicacion(lista_bzrp_nombres, lista_bzrp_vistas, lista_bzrp_duracion):
                     promedio_views = calcular_promedio_matriz(matriz_bzrp,1)
                     promedio_duracion = calcular_promedio_matriz(matriz_bzrp,2)
                     
+                    print(f"El promedio de visitas es de: {promedio_views}")
+                    print(f"El promedio de duración es de: {promedio_duracion}")
+                    
                     print("Los videos que superan el promedio de visitas y el promedio de duración son:")
                     
                     for columnas in range(cant_columnas_matriz_bzrp):
