@@ -1,7 +1,10 @@
 class Universidad:
 
     def __init__(self, nombre_universidad : str):
-        self.nombre_universidad = nombre_universidad
+        self.__nombre_universidad = nombre_universidad
+        
+    def get_nombre(self) -> str:
+        return self.__nombre_universidad
 
 class Carrera:
 
@@ -27,4 +30,7 @@ facu = Universidad("UTN")
 carrerubi = Carrera("Tecnicatura en programación")
 alumno = Estudiante("Ignacio","20")
 
-print(Estudiante.mostrar_info_estudiante(alumno,facu,carrerubi))
+nombre_facu = facu.get_nombre()
+nombre_carrera = carrerubi.get_carrera()
+
+print(Estudiante.mostrar_info_estudiante(alumno,nombre_facu,nombre_carrera))

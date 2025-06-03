@@ -1,0 +1,6 @@
+DIMENSION_PANTALLA = (800,600)
+COLOR_ROJO = (255,0,0)
+COLOR_NEGRO = (0,0,0)
+FPS = 30
+
+lista_numeros = [5,4,9,2]
