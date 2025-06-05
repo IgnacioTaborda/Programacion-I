@@ -1,4 +1,4 @@
-from lady_gaga import playlist_lady_gaga
+from lady_gaga import playlist_lady_gaga 
 from calculos import convertir_minutos_a_segundos
 from datetime import date
 
@@ -27,6 +27,32 @@ def convertir_duracion_en_segundos(diccionario : dict, duracion : str) -> int:
 
     return duracion_segundos
     
+def convertir_reproduciones_str_a_int(diccionario : dict, vistas : str) -> int:
+    """Esta función se encarga de convertir la cantidad de reproducciones que tiene
+    un video, vista con el formato "x millones" a número entero.
+
+    Args:
+        diccionario (dict): Diccionario que contiene las visitas
+        vistas (str): Key con la cantidad de visitas a convertir
+
+    Returns:
+        int: Retorna la duración del video en formato entero.
+    """
+    reproducciones = str(diccionario[vistas])
+    reproducciones = reproducciones.replace(" millones","")  
+    reproducciones = int(reproducciones)
+    reproducciones = reproducciones * 1000000
+    
+    return reproducciones
+
+def añadir_colaboradores(diccionario : dict, titulo : str):
+    tema = str(diccionario[titulo])
+    colaboradores = tema.split(" - ")
+    del colaboradores[-1]
+    colaboradores = tema.split(" | ")
+    return colaboradores
+    
+    
 '''def convertir_str_en_date(diccionario : dict, fecha : str) -> date:
     """Esta función recibe por parametro un diccionario que tiene la fecha de
     un video de clase STR. Haciendo uso del modulo "datetime" cambia la clase a
@@ -44,3 +70,5 @@ def convertir_duracion_en_segundos(diccionario : dict, duracion : str) -> int:
     return fecha_de_lanzamiento
 
 '''
+
+
