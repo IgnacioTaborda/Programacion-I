@@ -1,0 +1,58 @@
+from utn_fra.datasets import lista_diccionario_heroes_small
+
+lista_diccionario_heroes = [
+    {
+        "id": 1,
+        "nombre": "A-Bomb",
+        "identidad": "Desconocido",
+        "alias": "Rick Jones",
+        "inteligencia": 38,
+        "fuerza": 100,
+        "velocidad": 17,
+        "poder": 24,
+        "genero": "Masculino",
+        "raza": "Human",
+        "altura_mts": 2.03,
+        "peso_kg": 441,
+        "color_ojos": "Yellow",
+        "color_pelo": "No Hair",
+        "alineacion": "good",
+        "empresa": "Marvel Comics"
+    },
+    {
+        "id": 2,
+        "nombre": "Abe Sapien",
+        "identidad": "Desconocido",
+        "alias": "Langdon Caul",
+        "inteligencia": 88,
+        "fuerza": 28,
+        "velocidad": 35,
+        "poder": 100,
+        "genero": "Masculino",
+        "raza": "Icthyo Sapien",
+        "altura_mts": 1.91,
+        "peso_kg": 65,
+        "color_ojos": "Blue",
+        "color_pelo": "No Hair",
+        "alineacion": "good",
+        "empresa": "Dark Horse Comics"
+    },
+    {
+        "id": 3,
+        "nombre": "Wonder Woman",
+        "identidad": "Diana Prince",
+        "alias": "Wonder Woman",
+        "inteligencia": 95,
+        "fuerza": 100,
+        "velocidad": 85,
+        "poder": 90,
+        "genero": "Femenino",
+        "raza": "Amazona",
+        "altura_mts": 1.83,
+        "peso_kg": 74,
+        "color_ojos": "Azules",
+        "color_pelo": "Negro",
+        "alineacion": "good",
+        "empresa": "DC Comics"
+    }
+]
