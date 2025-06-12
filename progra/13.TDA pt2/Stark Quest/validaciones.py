@@ -20,3 +20,4 @@ def validar_opcion(opcion : str, lista_de_opciones : list) -> str:
         resultado = validar_opcion(opcion, lista_de_opciones)
 
     return resultado
+ 

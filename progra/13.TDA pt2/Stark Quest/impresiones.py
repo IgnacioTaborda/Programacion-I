@@ -20,7 +20,7 @@ def imprimir_menu() -> None:
     P - MUCHO TEXTO
     Q - Salir
     '''
-    print(menu)
+    print(menu) 
 
 def imprimr_nombre_genero(diccionario : dict, nombre : str, genero : str) -> None:
     """Imprime por consola el nombre y el genero de un personaje
