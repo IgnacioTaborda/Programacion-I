@@ -1,9 +1,9 @@
 import os
 from utn_fra.datasets import lista_diccionario_heroes_small
-from diccionario_heroes import lista_diccionario_heroes
+from diccionario_heroes import lista_heroes
 from impresiones import imprimir_menu, imprimr_nombre_genero
 from validaciones import validar_opcion
-from diccionario import es_dato, calcular_max_raza
+from diccionario import es_dato, calcular_max_raza, calcular_min_raza
 
 
 def stark_quest(diccionario_heroes : dict):
@@ -42,21 +42,29 @@ def stark_quest(diccionario_heroes : dict):
                 mensaje = f"El Heroe, de la raza humana, más alto es {diccionario_max_human['nombre']}, midiendo {diccionario_max_human['altura_mts']}."
                 print(mensaje)
 
-            case 'D':
+            case 'D': 
                 #D.Determinar cuál es el personaje más alto de raza “Desconocido”
-                diccionario_max_desconocido = calcular_max_raza(diccionario_heroes,'altura_mts','raza', '“Desconocido”')
+                diccionario_max_desconocido = calcular_max_raza(diccionario_heroes,'altura_mts','raza', 'Desconocido')
                 diccionario_max_desconocido = diccionario_heroes[diccionario_max_desconocido]
                         
                 mensaje = f"El Heroe, de raza desconocida, más alto es {diccionario_max_desconocido['nombre']}, midiendo {diccionario_max_desconocido['altura_mts']}."
                 print(mensaje)
 
             case 'E':
-                #E.Determinar cuál es el personaje más bajo  de raza “Symbiote”
-                pass
+                #E.Determinar cuál es el personaje más bajo  de raza “Symbiote” 
+                diccionario_min_desconocido = calcular_min_raza(diccionario_heroes,'altura_mts','raza', 'Symbiote')
+                diccionario_min_desconocido = diccionario_heroes[diccionario_min_desconocido]
+                        
+                mensaje = f"El Heroe, de raza Symbiote, más alto es {diccionario_min_desconocido['nombre']}, midiendo {diccionario_min_desconocido['altura_mts']}."
+                print(mensaje)
 
             case 'F':
                 #F.Determinar cuál es el personaje más bajo  de raza “Mutant”
-                pass
+                diccionario_min_desconocido = calcular_min_raza(diccionario_heroes,'altura_mts','raza', 'Mutant')
+                diccionario_min_desconocido = diccionario_heroes[diccionario_min_desconocido]
+                        
+                mensaje = f"El Heroe, de raza Mutant, más alto es {diccionario_min_desconocido['nombre']}, midiendo {diccionario_min_desconocido['altura_mts']}."
+                print(mensaje)
 
             case 'G':
                 #G.Determinar la altura promedio de los  personajes de empresa “DC Comics”
@@ -109,4 +117,4 @@ def stark_quest(diccionario_heroes : dict):
         os.system('cls')
 
 
-stark_quest(lista_diccionario_heroes)
+stark_quest(lista_heroes)

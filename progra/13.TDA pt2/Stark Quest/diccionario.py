@@ -12,7 +12,7 @@ def es_dato(diccionario : dict, key : str, valor : str) -> bool:
         bool: Si el valor se encuentra dentro de la key, se retorna 
         True. De lo contrario, se retorna False
     """
-    resultado = False
+    resultado = False 
     if diccionario[key] == valor:
         resultado = True 
 
@@ -29,7 +29,7 @@ def calcular_max_raza(diccionario : list[dict], key_a_evaluar : str, key_raza : 
         raza (str): Raza que se usará como filtro 
 
     Returns:
-        dict: Retorna el diccionario que contenga el mayor valor dentro de key_a_evaluar, siempre y cuando,
+        dict: Retorna el indice del diccionario que contenga el mayor valor dentro de key_a_evaluar, siempre y cuando,
         pertenezca a la raza.
     """
     mas_alto = None
@@ -42,5 +42,27 @@ def calcular_max_raza(diccionario : list[dict], key_a_evaluar : str, key_raza : 
             diccionario_max = i
     return diccionario_max
             
+def calcular_min_raza(diccionario : list[dict], key_a_evaluar : str, key_raza : str, raza : str) -> dict:
+    """Recorre una lista de diccionarios y evalúa el valor asociado a `key_a_evaluar`, 
+    pero solo considera aquellos elementos cuyo valor en `key_raza` coincida con la `raza` indicada.
+
+    Args:
+        diccionario (list[dict]): Lista de diccionarios
+        key_a_evaluar (str): Clave cuyo valor numérico se usará para encontrar el minimo
+        key_raza (str): Clave que indica la raza del elemento
+        raza (str): Raza que se usará como filtro 
+
+    Returns:
+        dict: Retorna el indice del diccionario que contenga el menor valor dentro de key_a_evaluar, siempre y cuando,
+        pertenezca a la raza.
+    """
+    mas_bajo = None
+    for i in range(len(diccionario)):
+        altura = diccionario[i][key_a_evaluar]
+        es_raza = es_dato(diccionario[i],key_raza,raza)
         
+        if (es_raza == True) and ((mas_bajo == None) or (altura < mas_bajo)):
+            mas_bajo =  altura
+            diccionario_min = i
+    return diccionario_min       
 
