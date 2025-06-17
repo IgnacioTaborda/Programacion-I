@@ -7,4 +7,4 @@ var.informacion['data'] = texto
 
 archivo.close()
 
-print(f"Mensaje = {var.informacion.get('data')}") #REVISAR CLASE GRABADA
+print(f"Mensaje: {var.informacion.get('data')}") 

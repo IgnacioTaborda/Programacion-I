@@ -2,7 +2,7 @@ from utn_fra.datasets import lista_diccionario_heroes_small
 
 lista_heroes = lista_diccionario_heroes_small
 
-lista_diccionario_heroes = [ 
+lista_diccionario_heroes = [  
     {
         "id": 1,
         "nombre": "A-Bomb",
@@ -95,3 +95,4 @@ lista_diccionario_heroes = [
     },
 ]
 
+print(lista_heroes)

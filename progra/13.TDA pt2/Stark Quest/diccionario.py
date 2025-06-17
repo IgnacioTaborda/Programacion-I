@@ -30,7 +30,7 @@ def calcular_max_raza(diccionario : list[dict], key_a_evaluar : str, key_raza : 
 
     Returns:
         dict: Retorna el indice del diccionario que contenga el mayor valor dentro de key_a_evaluar, siempre y cuando,
-        pertenezca a la raza.
+        pertenezca a la raza. 
     """
     mas_alto = None
     for i in range(len(diccionario)):
@@ -66,3 +66,32 @@ def calcular_min_raza(diccionario : list[dict], key_a_evaluar : str, key_raza : 
             diccionario_min = i
     return diccionario_min       
 
+
+
+def calcular_promedio_valor(diccionario_lista : list[dict], key : str) -> float:
+    """Esta función se encarga de calcular el promedio de algún valor númerico
+    de una lista de diccionarios.
+
+    Args:
+        diccionario (list[dict]): Diccionario a evaluar
+        key (str): Llave que contiene que valor a evaluar
+
+    Returns:
+        float: Retorna el promedio del valor. Si la lista esta vacia, retorna 0.
+    """
+    largo_diccionario = len(diccionario_lista)
+    acumulador = 0
+        
+    for i in range(largo_diccionario):
+        diccionario = diccionario_lista[i]
+        valor = diccionario[key]
+        acumulador += valor
+        
+    if largo_diccionario == 0:
+        promedio = 0
+    else:
+        promedio = acumulador / largo_diccionario
+        promedio = round(promedio,2)
+    
+    return promedio
+            
