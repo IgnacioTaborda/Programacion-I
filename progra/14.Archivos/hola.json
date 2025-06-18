@@ -11,6 +11,29 @@
         {
             "nombre": "Fatiga",
             "apellido": "Perrito"
+        },
+        {
+            "nombre": "Dardo",
+            "apellido": "Fuseneco"
+        },
+        {
+            "nombre": "Maria Elena",
+            "apellido": "Fuseneco"
+        },
+        {
+            "nombre": "La Nena",
+            "apellido": "Fuseneco"
+        },
+        {
+            "nombre": "Coqui",
+            "apellido": "Argento"
         }
-    ]
+    ],
+    "gastos": [
+        2,
+        5,
+        7,
+        1
+    ],
+    "anecdotas": "Este mes me la patine todaaaa"
 }
