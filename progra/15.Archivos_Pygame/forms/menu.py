@@ -1,6 +1,7 @@
 import pygame as pg
 import variables as var
-import auxiliares as aux
+import forms.auxiliares as aux
+
 
 lista_botones = aux.crear_lista_botones(4,var.DIMENSION_BOTON,"purple")
 
@@ -12,7 +13,7 @@ def mostrar_menu(pantalla : pg.Surface, cola_eventos : list[pg.event.Event]) -> 
         if evento.type == pg.QUIT:
             retorno = "salir"
         elif evento.type == pg.MOUSEBUTTONDOWN:
-            if lista_botones[var.BOTON_JUGAR]['rectangulo'].collidepoint(evento.pos):
+            if lista_botones[var.BOTON_JUGAR]['rectangulo'].collidepoint(evento.pos): 
                 retorno = "juego"
             elif lista_botones[var.BOTON_AJUSTE]['rectangulo'].collidepoint(evento.pos):
                 retorno = "configuracion"
@@ -21,4 +22,9 @@ def mostrar_menu(pantalla : pg.Surface, cola_eventos : list[pg.event.Event]) -> 
             elif lista_botones[var.BOTON_SALIR]['rectangulo'].collidepoint(evento.pos):
                 retorno = "salir"
                 
-    pantalla.fill()
+    pantalla.fill(var.COLOR_BLANCO)
+    pantalla.blit(var.fondo, var.fondo.get_rect())
+    
+    lista_botones[var.BOTON_HISTORIA]["rectangulo"] = pantalla.blit(lista_botones[var.BOTON_HISTORIA]["superficie"],(125,275))
+    
+    aux.mostrar_texto() 
