@@ -1,15 +1,16 @@
 import pygame as pg
 
-def draw_text(texto : str, fuente : str, text_color : str, x : int, y : int, pantalla : str):
-    """Muestra texto en pantallas
+def draw_text(texto : str, fuente : any, color : any, posicion_x : int, posicion_y : int, pantalla : str):
+    """Muestra texto ingresado por parametro en pantalla
 
     Args:
-        texto (str): _description_
-        fuente (str): _description_
-        text_color (str): _description_
-        x (int): _description_
-        y (int): _description_
-        pantalla (str): _description_
+        texto (str): Texto a mostrar
+        fuente (any): Fuente del texto
+        color (any): Color del texto
+        posicion_x (int): Posición X
+        posicion_y (int): Posición Y
+        pantalla (str): Surface
     """
-    text = fuente.render(texto,True, text_color)
-    pantalla.blit(text,(x,y))
+    text = fuente.render(texto,True, color)
+    pantalla.blit(text,(posicion_x,posicion_y))
+    
