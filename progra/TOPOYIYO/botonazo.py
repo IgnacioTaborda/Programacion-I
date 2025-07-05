@@ -55,5 +55,4 @@ def botonazo(texto : str, posicion_x : int, posicion_y : int, pantalla : str, fu
     
     fun.draw_text(boton.get("texto"),boton.get("fuente"),"black",boton.get("posicion_x"),boton.get("posicion_y"),boton.get("pantalla"))
     
-    
-    
+    return boton_rectangulo

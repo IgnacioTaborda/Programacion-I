@@ -12,3 +12,8 @@ fuente = pg.font.SysFont("arialblack", 15)
 
 #####COLORES#####
 TEXT_COLOR_BLANCO = (255,255,255)
+
+#####BOTONES#####
+BTN_JUGAR = pg.image.load("./progra/TOPOYIYO/assetss/btn_jugar.png")
+BTN_RANKING = pg.image.load("./progra/TOPOYIYO/assetss/btn_ranking.png")
+BTN_SALIR = pg.image.load("./progra/TOPOYIYO/assetss/btn_salir.png")
