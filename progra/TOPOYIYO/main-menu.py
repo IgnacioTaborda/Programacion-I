@@ -15,7 +15,7 @@ clocky = pg.time.Clock()
 pg.mixer.music.play(-1)
 pg.mixer.music.set_volume(0.2)
 pantalla_actual = "menu"
-#####COFIGURACIONES#####
+#####COFIGURACIONES##### 
 
 while corriendo:
     
@@ -26,7 +26,7 @@ while corriendo:
             corriendo = False 
     
     if pantalla_actual == "menu":
-        pantalla.blit(var.FONDO_IMG,(0,0))
+        pantalla.blit(var.FONDO_MENU,(0,0))
         pantalla.blit(var.TITULO_IMG,(fun.centrar_img_eje_x(var.SCREEN[0],400),25))
         
         boton_jugar = botonazo.botonazo("JUGAR",350,250,pantalla,var.fuente,150,25)
