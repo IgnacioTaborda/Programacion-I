@@ -3,8 +3,9 @@ pg.init()
 pg.mixer.init()
 
 #####MENU##### 
-TITULO = "TOPOMAX - MAIN MENU"
-ICON = pg.image.load("./progra/TOPOYIYO/assetss/Berserk.png")
+TITULO = "DRAGON BALL CARD GAME - MAIN MENU"
+ICON = pg.image.load("./progra/TOPOYIYO/assetss/star_4.png")
+MUSICA_MENU = "./progra/TOPOYIYO/assetss/DBZ_OP_8_bits.wav"
 
 #####PANTALLA#####
 SCREEN = (800,600)

@@ -71,11 +71,11 @@ def botonazo(texto : str, posicion_x : int, posicion_y : int, pantalla : str, fu
     activar_efecto_boton = determinar_si_fue_clickeada(mouse_pos,click_izquierdo,boton_rectangulo)
 
     if activar_efecto_boton == True:
-        pg.draw.rect(boton.get("pantalla"), "dark gray", boton_rectangulo,0,5)
+        pg.draw.rect(boton.get("pantalla"), (255, 140, 0), boton_rectangulo,0,5)
     else:
-        pg.draw.rect(boton.get("pantalla"), "gray", boton_rectangulo,0,5)       
-    pg.draw.rect(boton.get("pantalla"), "black", boton_rectangulo,2,5)
+        pg.draw.rect(boton.get("pantalla"), "orange", boton_rectangulo,0,5)       
+    pg.draw.rect(boton.get("pantalla"), "red", boton_rectangulo,2,5)
 
-    fun.draw_text(boton.get("texto"),boton.get("fuente"),"black",boton.get("posicion_x"),boton.get("posicion_y"),boton.get("pantalla"))
+    fun.draw_text(boton.get("texto"),boton.get("fuente"),"red",boton.get("posicion_x"),boton.get("posicion_y"),boton.get("pantalla"))
 
     return boton_rectangulo
