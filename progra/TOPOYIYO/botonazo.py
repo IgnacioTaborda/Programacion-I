@@ -3,7 +3,7 @@ import funciones as fun
 import variables as var
 
 
-def efecto_click(mouse_pos : tuple, click_izquierdo : tuple, boton_rectangulo : any) -> bool:
+def determinar_si_fue_clickeada(mouse_pos : tuple, click_izquierdo : tuple, boton_rectangulo : any) -> bool:
     """Al hacer click
 
     Args:
@@ -19,17 +19,40 @@ def efecto_click(mouse_pos : tuple, click_izquierdo : tuple, boton_rectangulo : 
     else:
         return False
 
+def imagen_clickeable(posicion_x : int, posicion_y : int, pantalla : str, imagen_boton):
+    """Esta función se encarga de mostrar una imagen por pantalla 
+
+    Args:
+        posicion_x (int): Posición X del texto
+        posicion_y (int): Posición Y del texto
+        pantalla (str): Variable que contiene la pantalla
+        imagen_boton : Imagen que va a tener el boton
+    """
+    boton = {}
+    boton["posicion_x"] = posicion_x
+    boton["posicion_y"] = posicion_y
+    boton["imagen_boton"] = imagen_boton
+
+    boton_pantalla = pantalla.blit(boton.get("imagen_boton"),(posicion_x,posicion_y))
+    
+    mouse_pos = pg.mouse.get_pos()
+    click_izquierdo = pg.mouse.get_pressed()[0]
+    
+    click_en_la_img = determinar_si_fue_clickeada(mouse_pos,click_izquierdo,boton_pantalla)
+       
+    return click_en_la_img
+
 def botonazo(texto : str, posicion_x : int, posicion_y : int, pantalla : str, fuente : str, ancho_boton : int, alto_boton : int):
     """Esta función se encarga de crear un botón rectangulo de color gris que contenga un texto
 
     Args:
-        texto (str): Texto que va a tener el botón
-        posicion_x (int): Posición X del texto
-        posicion_y (int): Posición Y del texto
-        pantalla (str): Variable que contiene la pantalla
-        fuente (str): Fuente que va a tener el texto
-        ancho_boton (int): Ancho del botón
-        alto_boton (int): Alto del botón
+    texto (str): Texto que va a tener el botón
+    posicion_x (int): Posición X del texto
+    posicion_y (int): Posición Y del texto
+    pantalla (str): Variable que contiene la pantalla
+    fuente (str): Fuente que va a tener el texto
+    ancho_boton (int): Ancho del botón
+    alto_boton (int): Alto del botón
     """
     boton = {}
     boton["texto"] = texto
@@ -39,20 +62,20 @@ def botonazo(texto : str, posicion_x : int, posicion_y : int, pantalla : str, fu
     boton["ancho_boton"] = ancho_boton
     boton["alto_boton"] = alto_boton
     boton["pantalla"] = pantalla
-    
+
     boton_rectangulo = pg.rect.Rect(boton.get("posicion_x") - 40, boton.get("posicion_y"), boton.get("ancho_boton"),boton.get("alto_boton"))
-    
+
     mouse_pos = pg.mouse.get_pos()
     click_izquierdo = pg.mouse.get_pressed()[0]
-    
-    activar_efecto_boton = efecto_click(mouse_pos,click_izquierdo,boton_rectangulo)
-    
+
+    activar_efecto_boton = determinar_si_fue_clickeada(mouse_pos,click_izquierdo,boton_rectangulo)
+
     if activar_efecto_boton == True:
         pg.draw.rect(boton.get("pantalla"), "dark gray", boton_rectangulo,0,5)
     else:
         pg.draw.rect(boton.get("pantalla"), "gray", boton_rectangulo,0,5)       
     pg.draw.rect(boton.get("pantalla"), "black", boton_rectangulo,2,5)
-    
+
     fun.draw_text(boton.get("texto"),boton.get("fuente"),"black",boton.get("posicion_x"),boton.get("posicion_y"),boton.get("pantalla"))
-    
+
     return boton_rectangulo

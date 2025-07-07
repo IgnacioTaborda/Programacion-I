@@ -1,2 +1,2 @@
-def draw_juego():
+def draw_juego(): 
     pass

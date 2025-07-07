@@ -14,3 +14,8 @@ def draw_text(texto : str, fuente : any, color : any, posicion_x : int, posicion
     text = fuente.render(texto,True, color)
     pantalla.blit(text,(posicion_x,posicion_y))
     
+def centrar_img_eje_x(resolucion_x_pantalla : int, resolucion_x_img : int, ) -> int:
+    eje_x = (resolucion_x_pantalla / 2) - (resolucion_x_img / 2)
+    return eje_x
+    
+     
