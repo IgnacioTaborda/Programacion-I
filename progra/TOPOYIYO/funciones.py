@@ -1,7 +1,7 @@
 import pygame as pg
 
 def draw_text(texto : str, fuente : any, color : any, posicion_x : int, posicion_y : int, pantalla : str):
-    """Muestra texto ingresado por parametro en pantalla
+    """Muestra el texto ingresado por parametro en pantalla
 
     Args:
         texto (str): Texto a mostrar
@@ -14,8 +14,18 @@ def draw_text(texto : str, fuente : any, color : any, posicion_x : int, posicion
     text = fuente.render(texto,True, color)
     pantalla.blit(text,(posicion_x,posicion_y))
     
-def centrar_img_eje_x(resolucion_x_pantalla : int, resolucion_x_img : int, ) -> int:
-    eje_x = (resolucion_x_pantalla / 2) - (resolucion_x_img / 2)
+def centrar_img_eje_x(ancho_pantalla : int, ancho_img : int) -> int:
+    """Esta función se encarga de poner en el centro de la pantalla una imagen
+
+    Args:
+        ancho_pantalla (int): Ancho de la pantalla 
+        ancho_img (int): Ancho de la imagen
+
+    Returns:
+        int: Retortna en que posición del eje "X" se tiene que encontrar
+        la imagen para estar en el medio de la pantalla.
+    """
+    eje_x = (ancho_pantalla / 2) - (ancho_img / 2)
     return eje_x
     
      

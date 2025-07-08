@@ -11,7 +11,8 @@ MUSICA_MENU = "./progra/TOPOYIYO/assetss/sonido/DBZ_OP_8_bits.wav"
 SCREEN = (800,600)
 TITULO_IMG = pg.image.load("./progra/TOPOYIYO/assetss/icons/dbz_titulo.png")
 FONDO_MENU = pg.image.load("./progra/TOPOYIYO/assetss/fondos/kame_house.jpg")
-FONDO_AJUSTE = pg.image.load("./progra/TOPOYIYO/assetss/fondos/namek.jpg")
+FONDO_AJUSTE = pg.image.load("./progra/TOPOYIYO/assetss/fondos/ajustes_bk.jpg")
+FONDO_BATALLA = pg.image.load("./progra/TOPOYIYO/assetss/fondos/tenkaichi_budokai.jpg")
 fuente_titulo = pg.font.SysFont("arialblack", 45)
 fuente = pg.font.SysFont("arialblack", 15)
 
