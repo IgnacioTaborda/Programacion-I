@@ -28,4 +28,13 @@ def centrar_img_eje_x(ancho_pantalla : int, ancho_img : int) -> int:
     eje_x = (ancho_pantalla / 2) - (ancho_img / 2)
     return eje_x
     
-     
+def leer_csv(archivo):
+    ranking = []
+    with open(file=archivo, mode="r", encoding="utf-8") as archivo:
+        pass
+    
+def reducir_tamano_img(imagen : str, reduccion : int):
+    alto = int(imagen.get_height() * float(f'0.{reduccion}'))
+    ancho = int(imagen.get_width() * float(f'0.{reduccion}'))
+    imagen_reducida = pg.transform.scale(imagen, (ancho, alto))
+    return imagen_reducida

@@ -1,43 +1,37 @@
 import pygame as pg
 import variables as var
-import funciones as fun
-import boton 
 import main_menu as menu
-import main_ajuste as ajustes
+import main_ranking as ranking
 import main_juego as game
+import main_ajustes as ajustes
 pg.init()
-pg.mixer.init()
 
 #####COFIGURACIONES#####
-pg.display.set_icon(var.ICON)
-pg.mixer_music.load(var.MUSICA_MENU)
-pantalla = pg.display.set_mode(var.SCREEN)
 corriendo = True
-clocky = pg.time.Clock()
-pg.mixer.music.play(-1)
-pg.mixer.music.set_volume(0.2)
+pantalla = pg.display.set_mode(var.SCREEN)
 pantalla_actual = "menu"
+clocky = pg.time.Clock()
+pg.display.set_icon(var.ICON)
 #####COFIGURACIONES##### 
 
 while corriendo:
     
-    fps = clocky.tick(60)
+    fps = clocky.tick(60) 
 
-    for event in pg.event.get():
-        if (event.type == pg.QUIT) or pantalla_actual == "salir":
-            corriendo = False 
+    cola_de_eventos = pg.event.get()
     
-    if pantalla_actual == "menu":
-        q = menu.menu(pantalla,pantalla_actual)
-        pantalla_actual = q
-    
-    elif pantalla_actual == "ajustes":
-        x = ajustes.ajustes(pantalla,pantalla_actual)
-        pantalla_actual = x     
-         
-    elif pantalla_actual == "juego":
-        y = game.juego(pantalla,pantalla_actual)
-        pantalla_actual = y
+    match pantalla_actual:
+        case "menu":
+            pantalla_actual = menu.pantalla_menu(pantalla,pantalla_actual,cola_de_eventos)
+        case "juego":
+            pantalla_actual = game.pantalla_juego(pantalla,pantalla_actual,cola_de_eventos)
+        case "ranking":
+            pantalla_actual = ranking.pantalla_ranking(pantalla,pantalla_actual,cola_de_eventos)
+        case "ajustes":
+            pantalla_actual = ajustes.pantalla_ajustes(pantalla,pantalla_actual,cola_de_eventos)
+        case "salir":
+            corriendo = False
+           
 
     pg.display.flip()
                 

@@ -18,7 +18,7 @@ def determinar_si_fue_clickeada(mouse_pos : tuple, tecla : tuple, objeto : any) 
     if tecla and objeto.collidepoint(mouse_pos):
         return True
 
-def botonazo(texto : str, posicion_x : int, posicion_y : int, pantalla : str, fuente : str, ancho_boton : int, alto_boton : int) -> object:
+def boton_img(imagen : str, posicion_x : int, posicion_y : int, pantalla : str) -> object:
     """Esta función se encarga de crear un objeto rectangulo que cumple la función de un botón. De ancho_boton x alto_boton, 
     con un borde y texto de color rojo, y un fondo de color naranja. En el centro se va a dibujar el texto ingresado por parametro.
     
@@ -37,19 +37,10 @@ def botonazo(texto : str, posicion_x : int, posicion_y : int, pantalla : str, fu
         la imagen para estar en el medio de la pantalla.
     """
     boton = {}
-    boton["texto"] = texto
+    boton["imagen"] = imagen
     boton["posicion_x"] = posicion_x
     boton["posicion_y"] = posicion_y
-    boton["fuente"] = fuente
-    boton["ancho_boton"] = ancho_boton
-    boton["alto_boton"] = alto_boton
     boton["pantalla"] = pantalla
 
-    boton_rectangulo = pg.rect.Rect(boton.get("posicion_x") - 40, boton.get("posicion_y"), boton.get("ancho_boton"),boton.get("alto_boton"))
-    
-    pg.draw.rect(boton.get("pantalla"), "orange", boton_rectangulo,0,5)       
-    pg.draw.rect(boton.get("pantalla"), "red", boton_rectangulo,2,5)
-
-    fun.draw_text(boton.get("texto"),boton.get("fuente"),"red",boton.get("posicion_x"),boton.get("posicion_y"),boton.get("pantalla"))
-
+    boton_rectangulo = pantalla.blit(boton.get("imagen"),(boton.get("posicion_x"),boton.get("posicion_y")))
     return boton_rectangulo
