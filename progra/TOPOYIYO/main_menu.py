@@ -31,6 +31,7 @@ def pantalla_menu(pantalla,pantalla_actual,cola_de_eventos):
        
     #ACCIONES - BOTONES
     if pg.mouse.get_pressed()[0]:
+        
         if boton_jugar.collidepoint(pg.mouse.get_pos()):
             var.EFECTO_BOTONES.play()
             pantalla_actual = "juego"
@@ -45,8 +46,8 @@ def pantalla_menu(pantalla,pantalla_actual,cola_de_eventos):
             
         elif boton_salir.collidepoint(pg.mouse.get_pos()):
             var.EFECTO_BOTONES.play()
-            pg.time.delay(300)
             pantalla_actual = "salir" 
+        pg.time.delay(300)
             
     fun.draw_text("HECHO POR: IGNACIO TABORDA - DIV 315",var.FUENTE,var.COLOR_BORDO,570,800,pantalla)
     return pantalla_actual

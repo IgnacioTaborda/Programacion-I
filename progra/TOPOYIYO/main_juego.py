@@ -55,12 +55,16 @@ def pantalla_juego(pantalla,pantalla_actual,cola_de_eventos):
     #ACCIONES - BOTONES
     if pg.mouse.get_pressed()[0]:
         if boton_jugar.collidepoint(pg.mouse.get_pos()):
+            print("JUGAR")
             var.EFECTO_BOTONES.play()   
             
         elif boton_shield.collidepoint(pg.mouse.get_pos()):
-            var.EFECTO_BOTONES.play()        
+            var.EFECTO_BOTONES.play()  
+            print("SHIELD")      
             
         elif boton_heal.collidepoint(pg.mouse.get_pos()):
             var.EFECTO_BOTONES.play()
+            print("HEALS")
+        pg.time.delay(300)
     
     return pantalla_actual

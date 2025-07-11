@@ -48,3 +48,6 @@ BTN_ATRAS = pg.image.load("./progra/TOPOYIYO/assetss/botones/btn_back.png")
 BTN_SALIR = pg.image.load("./progra/TOPOYIYO/assetss/botones/btn_quit.png")
 BTN_SHIELD = pg.image.load("./progra/TOPOYIYO/assetss/botones/btn_shield.png")
 BTN_HEAL = pg.image.load("./progra/TOPOYIYO/assetss/botones/btn_heal.png")
+
+#####ARCHIVOS#####
+CSV = "./progra/TOPOYIYO/ranking.csv"
