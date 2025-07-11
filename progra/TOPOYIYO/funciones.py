@@ -54,17 +54,25 @@ def reducir_tamano_img(imagen : str, reduccion : int):
     ancho = int(imagen.get_width() * float(f'0.{reduccion}'))
     imagen_reducida = pg.transform.scale(imagen, (ancho, alto))
     return imagen_reducida
-
-def ordenar_matriz_descendente(matriz : list[list], columna : int):
-    largo_lista = len(matriz)
-
-    for i in range(largo_lista-1):
-        
-        for j in range(i+1,largo_lista):
-            if matriz[i][columna] < matriz[j][columna]:
-                aux = matriz[i]
-                matriz[i] = matriz[j]
-                matriz[j] = aux
-
-    return matriz
             
+def ordenar_matriz_descendente_mejorada(matriz : list[list], columna : int):
+    largo_matriz = len(matriz)
+
+    for i in range(largo_matriz - 1):
+        indice_elemento_mayor = i
+
+        for j in range(i+1, largo_matriz):
+            if matriz[indice_elemento_mayor][columna] < matriz[j][columna]:
+                indice_elemento_mayor = j
+
+        if indice_elemento_mayor != i:
+            aux = matriz[i]
+            matriz[i] = matriz[indice_elemento_mayor]
+            matriz[indice_elemento_mayor] = aux
+    return matriz
+
+def escribir_csv(csv: str, datos: list):
+    with open(file=csv, mode="w", encoding="utf-8") as archivo:
+        for fila in datos:
+            linea = ",".join(str(fila))  
+            archivo.write(linea + "\n") 
