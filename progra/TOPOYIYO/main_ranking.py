@@ -31,7 +31,8 @@ def pantalla_ranking(pantalla,pantalla_actual,cola_de_eventos):
     for i in range(10):
         eje_y += 30
         posicion += 1
-        fun.draw_text(f"{posicion} - {ranking[i][0]} - {ranking[i][1]}",var.FUENTE,var.COLOR_BORDO,675,eje_y,pantalla)
+        fun.draw_text(f"{posicion}    {ranking[i][0]}",var.FUENTE,var.COLOR_NEGRO,600,eje_y,pantalla)
+        fun.draw_text(f"{ranking[i][1]}",var.FUENTE,var.COLOR_NEGRO,1000,eje_y,pantalla)
 
     #BOTON       
     boton_volver = boton.boton_img(var.BTN_ATRAS,1350,800,pantalla)

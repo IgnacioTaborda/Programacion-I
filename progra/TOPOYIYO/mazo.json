@@ -1,0 +1,48 @@
+{
+    "heroes": [
+        {
+            "nombre": "Goku",
+            "hp": 2400,
+            "atk": 3100,
+            "def": 1800,
+            "bonus": 3
+        },
+        {
+            "nombre": "Gohan",
+            "hp": 2100,
+            "atk": 2900,
+            "def": 1900,
+            "bonus": 2
+        },
+        {
+            "nombre": "Vegeta",
+            "hp": 2300,
+            "atk": 3000,
+            "def": 1700,
+            "bonus": 1
+        }
+    ],
+    "villanos": [
+        {
+            "nombre": "Freezer",
+            "hp": 2500,
+            "atk": 3000,
+            "def": 1600,
+            "bonus": 2
+        },
+        {
+            "nombre": "Cell",
+            "hp": 2200,
+            "atk": 2800,
+            "def": 2000,
+            "bonus": 3
+        },
+        {
+            "nombre": "Majin Buu",
+            "hp": 2600,
+            "atk": 2700,
+            "def": 1800,
+            "bonus": 1
+        }
+    ]
+}

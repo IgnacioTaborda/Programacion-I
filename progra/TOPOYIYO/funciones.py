@@ -1,4 +1,5 @@
 import pygame as pg
+import json
 
 def draw_text(texto : str, fuente : any, color : any, posicion_x : int, posicion_y : int, pantalla : str):
     """Muestra el texto ingresado por parametro en pantalla
@@ -29,15 +30,15 @@ def centrar_img_eje_x(ancho_pantalla : int, ancho_img : int) -> int:
     return eje_x
     
 def leer_csv(archivo : str) -> list[list]:
-    """Recibe un archivo csv por parametro y retorna una matriz que 
-    contiene cada renglon en una lista. 
+    """Recibe un archivo CSV por parametro y retonar una matriz
+    con la informacion
 
     Args:
-        archivo (str): Ruta del archivo csv
+        archivo (str): _description_
 
     Returns:
-        list[list]: Retona una matriz en la que cada lista es un
-        renglon y parsea el 2do elemento a un número entero
+        list[list]: Retorno el archivo en una matriz, donde
+        cada lista representa un renglon.
     """
     ranking = []
     with open(file=archivo, mode="r", encoding="utf-8") as archivo:
@@ -45,9 +46,9 @@ def leer_csv(archivo : str) -> list[list]:
             renglon = i.replace("\n","")
             separador = ","
             lista = renglon.split(separador)
-            lista[1] = int(lista[1])
+            lista[1] = int(lista[1]) 
             ranking.append(lista)  
-    return ranking
+    return ranking    
     
 def reducir_tamano_img(imagen : str, reduccion : int):
     alto = int(imagen.get_height() * float(f'0.{reduccion}'))
@@ -71,8 +72,30 @@ def ordenar_matriz_descendente_mejorada(matriz : list[list], columna : int):
             matriz[indice_elemento_mayor] = aux
     return matriz
 
-def escribir_csv(csv: str, datos: list):
+def escribir_csv(csv: str, datos: list[list]):
+    """Recibe una matriz y la escribe en un archivo CSV
+
+    Args:
+        csv (str): Archivo CSV en donde se escribiran los datos
+        datos (list[list]): Matriz con los datos a escribir
+    """
     with open(file=csv, mode="w", encoding="utf-8") as archivo:
-        for fila in datos:
-            linea = ",".join(str(fila))  
-            archivo.write(linea + "\n") 
+        largo_matriz = len(datos)
+        largo_fila = len(datos[0])
+        
+        for i in range(largo_matriz):
+            linea = ""
+            for j in range(largo_fila):     
+                linea += str(datos[i][j])
+                if j == 0:
+                    linea += ","
+            archivo.write(linea + "\n")
+            
+def leer_json(archivo : str) -> dict[dict]:
+    with open(file=archivo, mode="r", encoding="utf-8") as archivo:
+        jsoncito = json.load(archivo) 
+    return jsoncito    
+
+def sobrescribir_json(archivo_og, actualizacion):
+    with open(file=archivo_og, mode="w", encoding="utf-8") as archivo:
+        json.dump(obj=actualizacion, fp=archivo, indent=4)

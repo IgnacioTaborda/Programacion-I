@@ -24,11 +24,24 @@ def pantalla_ajustes(pantalla,pantalla_actual,cola_de_eventos):
     
     #BOTON       
     boton_volver = boton.boton_img(var.BTN_ATRAS,1350,800,pantalla)
+    boton_activar_musica = boton.boton_img(var.BTN_MUSIC_ON,700,175,pantalla)
+    boton_desactivar_musica = boton.boton_img(var.BTN_MUSIC_OFF,700,375,pantalla)
 
-    #ACCIÓN - BOTON
-    if boton_volver.collidepoint(pg.mouse.get_pos()) and pg.mouse.get_pressed()[0]:
-        var.EFECTO_BOTONES.play()
-        pg.time.delay(300)
-        pantalla_actual = "menu"
+       
+    #ACCIONES - BOTONES
+    if pg.mouse.get_pressed()[0]:     
+        if boton_volver.collidepoint(pg.mouse.get_pos()):
+            var.EFECTO_BOTONES.play()
+            pantalla_actual = "menu"
+            
+        elif boton_activar_musica.collidepoint(pg.mouse.get_pos()):
+            pg.mixer.music.play(-1)
+            var.EFECTO_BOTONES.play()
+            
+        elif boton_desactivar_musica.collidepoint(pg.mouse.get_pos()):
+            pg.mixer.music.pause()
+            var.EFECTO_BOTONES.play()
+             
+        pg.time.delay(100)
     
     return pantalla_actual

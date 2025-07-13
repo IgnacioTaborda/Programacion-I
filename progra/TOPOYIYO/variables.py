@@ -26,6 +26,7 @@ CARTA_TRASERA = pg.image.load("./progra/TOPOYIYO/assetss/cartas/reverse.png")
 
 #####FUENTE#####
 FUENTE_TITULO = pg.font.Font("./progra/TOPOYIYO/assetss/alagard.ttf", 65)
+FUENTE_MEDIANA = pg.font.Font("./progra/TOPOYIYO/assetss/alagard.ttf", 40)
 FUENTE = pg.font.Font("./progra/TOPOYIYO/assetss/alagard.ttf", 25)
 
 #####COLORES#####
@@ -34,6 +35,7 @@ COLOR_VIOLETA = (76,40,130)
 COLOR_BORDO = (179,32,0)
 COLOR_NARANJA = (236,129,19)
 COLOR_AMARILLO = (248,255,111)
+COLOR_NEGRO = (0,0,0)
 
 #####CANCIONES - SONIDOS#####
 EFECTO_BOTONES = pg.mixer.Sound("./progra/TOPOYIYO/assetss/sonido/radar_sound.mp3")
@@ -48,6 +50,9 @@ BTN_ATRAS = pg.image.load("./progra/TOPOYIYO/assetss/botones/btn_back.png")
 BTN_SALIR = pg.image.load("./progra/TOPOYIYO/assetss/botones/btn_quit.png")
 BTN_SHIELD = pg.image.load("./progra/TOPOYIYO/assetss/botones/btn_shield.png")
 BTN_HEAL = pg.image.load("./progra/TOPOYIYO/assetss/botones/btn_heal.png")
+BTN_MUSIC_ON = pg.image.load("./progra/TOPOYIYO/assetss/botones/music_on_god.png")
+BTN_MUSIC_OFF = pg.image.load("./progra/TOPOYIYO/assetss/botones/music_off_god.png")
 
 #####ARCHIVOS#####
 CSV = "./progra/TOPOYIYO/ranking.csv"
+JSON = "./progra/TOPOYIYO/mazo.json"
