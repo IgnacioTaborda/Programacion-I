@@ -80,12 +80,6 @@ def armar_mazo_aleatorio(cantidades: dict, cartas_rutas: dict) -> dict:
     
     return mazo_aleatorio
 
-archivo_json = fun_archivos.leer_json(var.JSON)
-
-hero = armar_mazo_aleatorio(archivo_json.get("cantidades"), archivo_json.get("rutas_cartas"))
-villano = armar_mazo_aleatorio(archivo_json.get("cantidades"), archivo_json.get("rutas_cartas"))
-
-######## PELEA #########
 def unificar_cartas(mazo: dict) -> list:
     """Une todas las cartas de un mazo en una lista única y las mezcla aleatoriamente."""
     cartas_unidas = []
@@ -104,66 +98,9 @@ def sumar_stats_totales(cartas: list) -> dict:
         total["DEF"] += int(carta["DEF"])
     return total
 
-def simular_combate(hero: dict, villano: dict):
-    # Paso 1: Unificar cartas
-    cartas_hero = unificar_cartas(hero)
-    cartas_villano = unificar_cartas(villano)
+######## PELEA #########
 
-    # Paso 2: Calcular HP total
-    hero_stats = sumar_stats_totales(cartas_hero)
-    villano_stats = sumar_stats_totales(cartas_villano)
 
-    hero_hp_total = hero_stats["HP"]
-    villano_hp_total = villano_stats["HP"]
-
-    rondas = min(len(cartas_hero), len(cartas_villano))
-
-    print("=== COMBATE INICIADO ===")
-    print(f"HP Total Heroe: {hero_hp_total}")
-    print(f"HP Total Villano: {villano_hp_total}")
-    print("========================")
-
-    for i in range(rondas):
-        carta_hero = cartas_hero[i]
-        carta_villano = cartas_villano[i]
-
-        atk_hero = int(carta_hero["ATK"])
-        atk_villano = int(carta_villano["ATK"])
-
-        print(f"\n--- RONDA {i + 1} ---")
-        print(f"Heroe ATK: {atk_hero} vs Villano ATK: {atk_villano}")
-
-        if atk_hero > atk_villano:
-            villano_hp_total -= atk_hero
-            print(f"Heroe gana la ronda. Villano pierde {atk_hero} HP")
-        elif atk_villano > atk_hero:
-            hero_hp_total -= atk_villano
-            print(f"Villano gana la ronda. Heroe pierde {atk_villano} HP")
-        else:
-            print("Empate. Nadie pierde HP.")
-
-        print(f"HP Heroe: {hero_hp_total}")
-        print(f"HP Villano: {villano_hp_total}")
-
-        # Chequeo de muerte
-        if hero_hp_total <= 0:
-            print("\n¡VILLANO GANA LA PARTIDA!")
-            return "villano"
-        elif villano_hp_total <= 0:
-            print("\n¡HEROE GANA LA PARTIDA!")
-            return "heroe"
-
-    print("\n=== FIN DEL COMBATE ===")
-    if hero_hp_total > villano_hp_total:
-        print("¡HEROE GANA POR PUNTAJE!")
-        return "heroe"
-    elif villano_hp_total > hero_hp_total:
-        print("¡VILLANO GANA POR PUNTAJE!")
-        return "villano"
-    else:
-        print("¡EMPATE TOTAL!")
-        return "empate"
-    
 
 # x = armar_mazo_clase(ruta_carpeta)
 # print(x)

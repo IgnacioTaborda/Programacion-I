@@ -6,6 +6,7 @@ import variables as var
 import herramientas.funciones_archivos as archivos_fun
 import pantallas.pantalla_ranking as pantalla_ranking
 import personaje_base
+import combatito
 
 def dragon_ball_tcg():
     encendido = True
@@ -24,7 +25,7 @@ def dragon_ball_tcg():
                 pantalla_actual = pantalla_menu.opciones_menu(opcion)
                 
             case "jugar":
-                print("jugandooo")
+                pantalla_actual = combatito
                 
             case "ranking":
                 matriz_ranking = archivos_fun.leer_csv(var.JSON)
