@@ -1,3 +1,5 @@
+import json
+
 def leer_csv(archivo : str) -> list[list]:
     """Recibe un archivo CSV por parametro y retonar una matriz
     con la informacion
@@ -37,3 +39,12 @@ def escribir_csv(csv: str, datos: list[list]):
                 if j == 0:
                     linea += ","
             archivo.write(linea + "\n")
+
+def leer_json(archivo : str) -> dict[dict]:
+    with open(file=archivo, mode="r", encoding="utf-8") as archivo:
+        jsoncito = json.load(archivo) 
+    return jsoncito    
+
+def sobrescribir_json(archivo_og, actualizacion):
+    with open(file=archivo_og, mode="w", encoding="utf-8") as archivo:
+        json.dump(obj=actualizacion, fp=archivo, indent=4)
