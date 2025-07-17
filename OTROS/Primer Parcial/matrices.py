@@ -68,7 +68,7 @@ def encontrar_valor(matriz : list[list], fila : int, valor : any) -> list:
 
 def obtener_indice_mayor(matriz : list[list], inicio : int, fila : int, indice_mayor : int) -> int:
     """Esta función se encarga de obtener el indice del mayor valor que hay en la lista
-
+        #obtener_indice_mayor(matriz, i + 1, fila, i)
     Args:
         matriz (list[list]): Matriz que contenga la lista
         inicio (int): Indice con el que empezamos a comparar
