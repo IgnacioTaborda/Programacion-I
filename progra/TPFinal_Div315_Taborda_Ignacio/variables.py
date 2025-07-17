@@ -18,3 +18,5 @@ red_deck_expansion_2 = "./assetss/cartas/red_deck_expansion_2",
 red_deck_expansion_3 = "./assetss/cartas/red_deck_expansion_3",
 purple_deck_expansion_1 = "./assetss/cartas/purple_deck_expansion_1",
 purple_deck_expansion_2 = "./assetss/cartas/purple_deck_expansion_2"
+
+MUSICA_DE_FONDO = "./assetss/sonido/DBZ_OP_8_bits.wav"

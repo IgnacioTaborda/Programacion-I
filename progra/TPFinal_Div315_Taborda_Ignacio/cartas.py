@@ -98,31 +98,3 @@ def sumar_stats_totales(cartas: list) -> dict:
         total["DEF"] += int(carta["DEF"])
     return total
 
-######## PELEA #########
-
-
-
-# x = armar_mazo_clase(ruta_carpeta)
-# print(x)
-
-# def armar_mazo_total(archivo_json : str) -> dict:
-#     """Crea un diccionario que contiene multiples diccionarios
-#     que sub-diccionarios que tienen cartas con sus valores.
-
-#     Args:
-#         archivo_json (str): Ruta del JSON que tiene las rutas
-#         de los mazos.
-
-#     Returns:
-#         dict: Retorna un diccionario que contiene otros diccionarios,
-#         dentro de dichos diccionarios, contienen otros diccionarios que
-#         son las cartas del mazo. La etiqueta es el número de carta y en 
-#         el valor se cuentra el: ID, HP, ATK, DEF y BONO
-
-#     """
-#     archivo_json = fun_archivos.leer_json(archivo_json)
-#     cartas_rutas = archivo_json.get("rutas_cartas")
-
-#     for nombre_mazo, ruta in cartas_rutas.items():
-#         cartas_rutas[nombre_mazo] = armar_mazo_carpeta(ruta)
-#     return cartas_rutas
